@@ -1,0 +1,215 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <assert.h>
+#include <errno.h>
+#include <sys/time.h>
+#include <sys/select.h>
+
+#define READ 0
+#define WRITE 1
+
+
+
+char *** new_table() {
+  char ***table;
+  table = (char ***)calloc(20, sizeof(char **));
+  
+  int i;
+  char **client;
+  for (i = 0; i < 20; i++){
+    client = (char **)calloc(2, sizeof(char *));
+    table[i] = client;
+    table[i][0] = (char *)malloc(256);
+    table[i][1] = (char *)malloc(256);
+  }
+
+  return table;
+}
+
+void subserver(int socket_client, int to_server, int from_server) {
+
+  int b, i;
+  b = 0;
+  int pid = getpid();
+  char m_from_server[256];
+  char m_from_client[256];
+
+  //setting up select stuff
+  int n;
+  int max_fd;
+  fd_set input;
+  struct timeval timeout;
+
+  FD_ZERO(&input);
+  FD_SET(from_server, &input);
+  FD_SET(socket_client, &input);
+  
+  max_fd = (socket_client > from_server ? socket_client : from_server) + 1;
+  
+  //Initialize the timeout structure
+  timeout.tv_sec  = 10;
+  timeout.tv_usec = 0;
+ 
+  //do client stuff continuously
+  while (1) {
+    write(to_server, &pid, sizeof(pid));
+
+    // Do the select
+    n = select(max_fd, &input, NULL, NULL, &timeout);
+
+    if (n < 0)
+      perror("select failed");
+    else if (n == 0){
+      puts("TIMEOUT");
+    }
+    else{
+      if (FD_ISSET(from_server, &input)){
+	//read from server and write to client
+	read(from_server, m_from_server, sizeof(m_from_server));
+	write(socket_client, m_from_server, sizeof(m_from_server));
+	printf("Received from server: %s \n", m_from_server);
+      }
+      if (FD_ISSET(socket_client, &input)){
+	//read from client and write to server
+	read( socket_client, m_from_client, sizeof(m_from_client));
+	write(to_server, m_from_client, sizeof(m_from_client));
+	printf("Received from client: %s \n", m_from_client);
+      }
+    }
+   
+    //added Jan 20
+    //checking for IP address
+    //char *peer_IP = (char *)malloc(256);
+    //strncpy(peer_IP, &buffer[0], sizeof(buffer));
+    //char *head = (char *)malloc(256);
+    //head = strsep(&peer_IP, "#");
+
+    //if (strncmp(head, "IPIPIP", sizeof(head)) == 0){
+    //printf("\tGot IP address!\n");
+    //if (peer_connected(table, size, peer_IP) == 0){
+    //connect to the corresponding socket
+    //printf("\t\t\t\tCONNECTED!!\n");
+    //}
+    //}
+    
+    //write to client
+    //write( socket_client, buffer, strlen(buffer));
+    
+  }
+  close(socket_client);
+}
+
+int peer_connected(char ***table, int size, char *peer_IP){
+  int i;
+  char *IP;
+  for (i = 0; i <= size - 1; i++){
+    IP = table[i][1];
+    if (strcmp(IP, peer_IP) == 0)
+      return 0;
+  }
+  printf("IP: %s\npeer_IP: %s\n", IP, peer_IP);
+  return -1;
+}
+
+int main() {
+
+  umask(0000);
+
+  int socket_id, socket_client;
+  char buffer[256];
+  int i, b;
+  pid_t pid;
+  int table_to_serv[20];
+  int table_to_sub[20];
+  int client_pids[10];
+  int last_client = 0;
+  int index;
+  char m[256];
+
+  struct sockaddr_in server;
+  socklen_t socket_length;
+
+  char *client_ip;
+  client_ip = (char *)malloc(256);
+
+
+  //make the server socket for reliable IPv4 traffic 
+  socket_id = socket( AF_INET, SOCK_STREAM, 0);
+
+  printf("Socket file descriptor: %d\n", socket_id);
+
+  //set up the server socket struct
+  //Use IPv4 
+  server.sin_family = AF_INET;
+
+  //This is the server, so it will listen to anything coming into the host computer
+  server.sin_addr.s_addr = INADDR_ANY;
+  
+  //set the port to listen on, htons converts the port number to network format
+  server.sin_port = htons(24601);
+  
+  //bind the socket to the socket struct
+  i= bind( socket_id, (struct sockaddr *)&server, sizeof(server) );
+
+  //wait for any connection
+  i =  listen( socket_id, 1 );
+
+  //accept connections continuously
+
+  while(1) {
+
+    printf("Accepting a connection\n");
+
+    //set socket_length after the connection is made
+    socket_length = sizeof(server); 
+
+    //accept the incoming connection, create a new file descriptor for the socket to the client
+    socket_client = accept(socket_id, (struct sockaddr *)&server, &socket_length);
+    printf("accepted connection %d\n",socket_client);
+
+    //gets client's IP address WAIT ISN'T SERVER.SIN_ADDR THE SERVER'S IP?
+    client_ip = inet_ntoa(server.sin_addr);
+    printf("\tserver.sin_addr converted to IP: %s\n", client_ip);
+
+
+    assert(pipe(&table_to_serv[last_client * 2]) == 0);
+    assert(pipe(&table_to_sub[last_client * 2]) == 0);
+
+    //go to subserver
+    //    pid = fork();
+    if ( pid == 0 ) {
+      close(table_to_serv[(last_client * 2) + READ]);
+      close(table_to_sub[(last_client * 2) + WRITE]);
+      subserver(socket_client, table_to_serv[(last_client * 2) + 1], table_to_sub[last_client * 2]);
+      
+      exit(0);
+    }
+    else {
+      close(table_to_serv[(last_client * 2) + WRITE]);
+      close(table_to_sub[(last_client * 2) + READ]);
+      close(socket_client);
+      read(table_to_serv[(last_client * 2) + READ], &client_pids[last_client], sizeof(client_pids[last_client]));
+      last_client++;
+    }
+
+    for(index = 0; index < last_client; index++){
+      if(read(table_to_serv[index * 2], m, sizeof(m)) > 0)
+	break;
+      }
+    
+    printf("The server read: %s \n", m);
+    
+    for(index = 0; index < last_client; index++){
+      write(table_to_sub[index * 2 + 1], m, sizeof(m));
+    }
+    
+    printf("Waiting for new connection\n");
+  }
+  
+}

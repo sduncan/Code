@@ -1,0 +1,1 @@
+To improve upon our project, we have to make it so that our program can take the friend's IP that you typed in at the beginning and make it so that the message goes solely to that computer instead of just sending out a general message.

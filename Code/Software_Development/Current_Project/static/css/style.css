@@ -1,0 +1,141 @@
+div#main {
+position:relative;
+top:0px;
+left:0px;
+height:85%;
+width:100%;
+}
+
+svg#pane {
+position:absolute;
+top:0px;
+left:0px;
+height:100%;
+width:100%;
+display:inline;
+}
+
+svg#maker {
+position:absolute;
+top:0px;
+left:0px;
+height:100%;
+width:100%;
+display:inline;
+}
+
+svg#pagehtml {
+position:absolute;
+top:0px;
+left:0px;
+}
+
+svg#optionsmenu {
+position:absolute;
+top:0px;
+left:0px;
+}
+
+rect {
+stroke-width:2;
+stroke:rgb(0,0,0);
+display:inline;
+fill:white;
+fill-opacity:0;
+stroke-opacity:1;
+position:absolute;
+z-index:-1;
+}
+
+
+div#pane {
+position:relative;
+top:0px;
+height:75%;
+width:13%;
+float:left;
+display:inline;
+margin-bottom:5px;
+border-width:1px;
+border-style:solid;
+}
+
+div#maker {
+position:relative;
+top:0px;
+right:20%;
+height:75%;
+width:75%;
+float:right;
+display:inline;
+margin-bottom:5px;
+border-width:1px;
+border-style:solid;
+} 
+
+div#pagehtml {
+position:absolute;
+top:85%;
+height:43%;
+width:50%;
+margin-bottom:5px;
+border-width:1px;
+border-style:solid;
+}
+
+div#optionsmenu {
+position:absolute;
+top:85%;
+left: 52%;
+height:43%;
+width:47%;
+margin-bottom:5px;
+border-width:1px;
+border-style:solid;
+}
+
+div#text2 {
+position:absolute;
+top:81%;
+}
+
+span#spacing {
+position:relative;
+left:12%;
+}
+
+span#spacing2 {
+position:relative;
+left: 415%;
+}
+
+.paneobject {
+position:relative;
+top:5%;
+left:5%;
+z-index:1;
+/height:50px;
+/width:10px;
+}
+
+.inpage {
+z-index:1;
+}
+
+textarea#pagehtml {
+position:absolute;
+width:100%;
+height:100%;
+resize:none;
+z-index:1;
+}
+
+#colorslider {
+z-index:2;
+}
+
+.edit {
+border-style:inset;
+border-width:2px;
+border-color:red;
+}

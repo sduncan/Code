@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/6343/trunk/dstructs/4/Sarah_Duncan
+END
+queue.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/6343/trunk/dstructs/4/Sarah_Duncan/queue.c
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/6344/trunk/dstructs/4/Sarah_Duncan/main.c
+END
+stack.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/6343/trunk/dstructs/4/Sarah_Duncan/stack.c
+END
+queue.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/6343/trunk/dstructs/4/Sarah_Duncan/queue.h
+END
+stack.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/6343/trunk/dstructs/4/Sarah_Duncan/stack.h
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/6344/trunk/dstructs/4/Sarah_Duncan/makefile
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/6703/trunk/abook_file/4/Sarah_Duncan
+END
+linklist.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/6826/trunk/abook_file/4/Sarah_Duncan/linklist.h
+END
+adbook.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/6826/trunk/abook_file/4/Sarah_Duncan/adbook.c
+END
+addressbook.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/6703/trunk/abook_file/4/Sarah_Duncan/addressbook.c
+END
+addressbook.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/6703/trunk/abook_file/4/Sarah_Duncan/addressbook.h
+END
+linklist.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/6826/trunk/abook_file/4/Sarah_Duncan/linklist.c
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/6703/trunk/abook_file/4/Sarah_Duncan/makefile
+END

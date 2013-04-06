@@ -1,0 +1,195 @@
+/*
+	99Lime.com HTML KickStart by Joshua Gatcke
+	style.css
+	
+*/
+
+/*---------------------------------
+	IMPORTS
+-----------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Arimo:400,700);
+
+/*---------------------------------
+	OVERRIDES
+-----------------------------------*/
+h1,h2,h3,h4,h5,h6{
+font-family: "Trebuchet Ms", arial, verdana, sans-serif;
+}
+
+h5 {
+    position: inherited;
+    padding-left: 30px;
+    font-size: large;
+}
+
+thead th, tbody th{
+font-family: "Trebuchet Ms", arial, verdana, sans-serif;
+}
+
+button, a.btn, input[type="submit"], input[type="reset"], input[type="button"]{
+    font-family: "Trebuchet Ms", arial, verdana, sans-serif;
+}
+
+.menu{
+    font-family: "Trebuchet Ms", arial, verdana, sans-serif;
+}
+
+blockquote{
+    font-family: "Trebuchet Ms", arial, verdana, sans-serif;
+}
+
+/*---------------------------------
+	LAYOUT
+-----------------------------------*/
+body{
+    margin:0;
+    padding:0;
+    color:#000;
+    background:#efefef url(css/img/grid.png) center;
+    font:normal 0.9em/150% 'Arimo', "Trebuchet MS", arial, verdana, sans-serif;
+    text-shadow: 0px 0px 1px transparent; /* google font pixelation fix */
+}
+
+#wrap{
+    width:960px;/*960*/
+    background:#fff;
+    margin:30px auto 30px auto;
+    padding:0;
+    border:1px solid #ccc;
+}
+
+.menu{
+    margin:-1px -1px 0 -1px;
+}
+
+
+#footer{
+    text-align:center;
+    padding:20px;
+    margin:0;
+    background:#efefef;
+    border-top:1px solid #ccc;
+    color:#999;
+    font-size:0.8em;
+    text-shadow:0px 1px 1px #fff;
+    position: relative;
+    top:0;
+    left:0;
+}
+
+#link-top{
+    position: absolute;
+    top:10px;
+    right:10px;
+    *right:25px;/*IE 7 ONLY*/
+    left:auto;
+    color:#666;
+    text-decoration:none;
+    display: inline-block;
+    padding:5px 10px;
+    background:#e5e5e5;
+    line-height:100%;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body, #map_canvas {
+    background: -webkit-linear-gradient(-45deg, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%);
+    width: 100%;
+    height: 94%;
+    margin: 0px;
+    padding-top:50px;
+    -webkit-box-shadow: 0px 0px 8px 0px #000000;
+    -moz-box-shadow: 0px 0px 8px 0px #000000;
+    box-shadow: 0px 0px 8px 0px #000000;
+}         
+body{height:100%;}
+
+#map_canvas {
+    padding-top: 0;
+}
+
+h {
+    padding-right: 30px; 
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    color: #FFFFFF;
+    text-shadow: -1px 0 0 #000000, 1px 1px 0 #000000,
+    2px -1px 0 #000000, 3px 0 0 #000000;
+}
+
+#trigger {
+    position: absolute; 
+    right: 15px; 
+    top: 15px;
+}
+
+#target {
+    width: 250px;
+}
+
+#Home, #Location, #Directions, #Search{
+    background-color: white;
+    width: 70%;
+    margin: 10px;
+    margin-bottom: 100px;
+}
+
+#tabsbar {
+    padding-top: 30px;
+    width: 70%;
+    margin-left: 10px;
+}
+
+#panel{
+    position: fixed;
+    z-index: 9999;
+    width: 300px;
+    height: 100%;
+    right: 2px;
+    background-color: #F0EAD6;
+    display: none;
+    -webkit-box-shadow: 0px 0px 8px 0px #000000;
+    -moz-box-shadow: 0px 0px 8px 0px #000000;
+    box-shadow: 0px 0px 8px 0px #000000;
+    padding-bottom:100px
+}
+
+#navigation {
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    color: #ffffff;
+    height: 35px;
+    padding-top: 15px;
+    -webkit-box-shadow: 0px 0px 8px 0px #000000;
+    -moz-box-shadow: 0px 0px 8px 0px #000000;
+    box-shadow: 0px 0px 8px 0px #000000;
+    background-color: rgba(1, 1, 1, 0.8);
+    color: rgba(1, 1, 1, 0.8);
+}
+
+#navigation a{
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #DDDD;
+    text-decoration: none;
+}
+
+#navigation a:hover {
+    color: white;
+} 
+
+.accordion-toggle {
+    display: none;
+    background-color: white;
+}

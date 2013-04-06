@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include "shell.h"
+
+
+//removes extra spaces from the command
+char * rmSpaces(char *cmd) {
+  char *last = cmd + strlen(cmd) - 1;
+  while (*cmd == ' ')
+    cmd++;
+  while (*last == ' ')
+    last--;
+  last++;
+  last = NULL;
+  return cmd;
+}
+
+//returns location of the command
+//note to self: add stderr
+char * getLoc(int x, char *cmd){
+  char * loc1;
+  char * loc = (char *)malloc(256);  
+  if (x == 0)
+    loc1 = "/bin/";
+  else
+    loc1 = "/usr/bin/";
+  strncat(loc, loc1, strlen(loc1));
+  strncat(loc, cmd, strlen(cmd));
+  return loc;
+}
+
+//executes commands
+void execute(char** cmds){
+  int p;
+  int s;
+
+  /*
+  //prints all parts of command, for testing
+  int i;
+  for (i = 0; i < sizeof(cmds); i++){
+    printf("cmd: %s\n", cmds[i]);
+  }
+  */
+  
+  p = fork();
+  if (p == 0){
+    int err = execvp(getLoc(0, cmds[0]), cmds);
+    if (err < 0)
+      err = execvp(getLoc(1, cmds[0]), cmds);   
+  }
+  else{
+    wait(&s);
+  }
+}
+
+//puts stdin entry into an array of individual command parts
+//note to self: add functionality for multiple commands with ;
+char ** package(char *ling){
+  char **cmds;
+  cmds = (char **) malloc( 60 * sizeof(char *));
+  char *s2;
+  s2 = (char *) malloc(256);
+
+  int i = 0;
+  while(ling){
+    cmds[i] = (char *) malloc(256);
+    s2 = strsep(&ling, " \n");
+    s2 = rmSpaces(s2);
+    if (s2 && s2[0] != '\0'){
+      strncpy(cmds[i], s2, 256);
+      i++;
+    }
+  }
+
+  //makes empty slot resulting from \n into NULL
+  i = 0;
+  for (i = 0; i < 60; i++){
+    if (cmds[i])
+      if (cmds[i][0] == '\0')
+	cmds[i] = NULL;
+  }
+
+  return cmds;
+}
+
+
+//promps user for input
+void prompt(){
+  char *ling;
+  ling = (char *) malloc(256 * sizeof(char));
+  printf("DN$  ");
+  fgets(ling, 256, stdin);
+  if (ling != NULL)
+    execute(package(ling));
+}
+
+
+int main(){
+<<<<<<< .mine
+  new_commands();
+  //prompt();
+  //printf("\nling: %s\n", ling);
+  execute(ling);
+  int i = 0;
+  /*  while(commands[i]){
+    free(commands[i]);
+    i++;
+  }
+=======
+  while(1)
+    prompt();
+>>>>>>> .r7208
+  */
+  return 0;
+}

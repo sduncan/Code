@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css"/>
+</head>
+
+<form action = "" method = "POST">
+
+<h1>Story time!</h1><br>
+<div class="story">
+<h2>{{title}}</h2>
+
+{% for line in lines %}
+{{ line }} <p>
+{% endfor %}
+
+<input type=hidden name="title" width=80 value="{{title}}"></input>
+
+<br><br>
+<p><label>Add your own line to the story:<br>
+<textarea name="new_line" row="3" cols="40">
+</textarea>
+</label></p>
+
+<p><input type=submit name=button value="Add"></input>
+<input type=submit name=button value="Cancel"></input>
+<input type=submit name=button value="Delete"></input>
+</p>
+<br><br><br><br><br><br><br><br><br><br>
+</div>
+</form>

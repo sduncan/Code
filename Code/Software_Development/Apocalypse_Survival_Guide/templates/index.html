@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Survival Kit</title>
+      
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/scripts.js"></script>
+    <script type="text/javascript" src="/static/js/prettify.js"></script>      
+    <script type="text/javascript" src="/static/js/kickstart.js"></script> 
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script> var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/kickstart.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" media="all"/>  
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:bold"/>  
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
+    <link rel="shortcut icon"  href="/static/img/favicon.ico">
+  </head>
+
+  <body onload="initialize(),changeBGC('fire')">
+    <div id="navigation">
+      <a href="#"><h>The Survival Kit</h></a>
+      <a onclick="changeBGC('fire')" href="#home"><span class="icon blue" data-icon="I"></span> Home</a>
+      <a onclick="changeBGC('aliens')" href="#aliens"><span class="icon blue" data-icon="G"></span> Alien Invasion</a>
+      <a onclick="changeBGC('hurricane')" href="#hurricane"><span class="icon blue" data-icon="a"></span> Hurricane</a>
+      <a onclick="changeBGC('zombies')" href="#zombies"><span class="icon blue" data-icon="u"></span> Zombie Apocalypse</a>
+      <a id="trigger" href="#info">Tools</a>
+    </div>
+    
+    <div id="panel" style="overflow:scroll">
+      <h5 id="disaster">Please select your disaster</h5>
+
+      <hr class="alt1"/>
+
+      <div class="accordion" id="accordion2">
+	<div class="accordion-group">
+	  <div class="accordion-heading">
+	    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#about"><i class="icon-chevron-right"></i>
+	      About
+	    </a>
+	  </div>
+	  <div id="about" class="accordion-body collapse">
+	    <div class="accordion-inner" id="about_text">
+	      Select a Disaster first
+	    </div>
+	  </div>
+	</div>
+	<div class="accordion-group">
+	  <div class="accordion-heading">
+	    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#facilities"><i class="icon-chevron-right"></i>
+              Find Facilities
+	    </a>
+	  </div>
+	  <div id="facilities" class="accordion-body collapse">
+	    <div class="accordion-inner">
+	      <!--DROPDOWN MENU IS HERE!!!!!!!!!!!!!!-->
+	      <select id="facilitychoose">
+		<option class="fc_option" value="0">-- Choose --</option>
+		<option class="fc_option" value="hospital">Hospitals</option>
+		<option class="fc_option" value="school">Schools</option>
+		<option class="fc_option" value="food">Food Providers</option>
+		<option class="fc_option" value="police">Police Precincts</option>
+	      </select>
+	      <!--END DROPDOWN MENU!!!!!-->
+	      <ul class="alt" id="faclist" style="display:none">
+		<li id="1"></li>
+		<li id="2"></li>
+		<li id="3"></li>
+		<li id="4"></li>
+		<li id="5"></li>
+		<li id="6"></li>
+		<li id="7"></li>
+		<li id="8"></li>
+		<li id="9"></li>
+		<li id="10"></li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	<div class="accordion-group">
+	  <div class="accordion-heading">
+	    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#search"><i class="icon-chevron-right"></i>
+	      Search
+	    </a>
+	  </div>
+	  <div id="search" class="accordion-body collapse">
+	    <div class="accordion-inner"> 
+	      <input id="target" type="text" placeholder="Enter Keywords">
+	    </div>
+	  </div>
+	</div>
+	<div class="accordion-group">
+	  <div class="accordion-heading">
+	    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#helpful_tips"><i class="icon-chevron-right"></i>
+              Helpful Tips
+	    </a>
+	  </div>
+	  <div id="helpful_tips" class="accordion-body collapse">
+	    <div class="accordion-inner" id="helpful_tips_text">
+              Select a Disaster first
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+    
+    <div class="container" id="map_canvas" style="top:20px; left:10px; width:98.5%; height: 70%;"></div>
+
+    <ul class="tabs left" id="tabsbar">
+      <li><a href="#Home">Home</a><li>
+      <li><a href="#Location">Your Location</a></li>
+      <li><a href="#Directions">Get Directions</a></li>
+    </ul>
+    
+    <div id="Home" class="tab-content">
+      <div id="timedate">
+	<h2><b>Today's date is
+	<script type ="text/javascript">
+	var currentTime = new Date()
+	var month = currentTime.getMonth() + 1
+	var day = currentTime.getDate()
+	var year = currentTime.getFullYear()
+	document.write(month + "." + day + "." + year)
+	</script></b></h2>
+	<h2><b>Current time is 
+	<script type ="text/javascript">
+	var currentTime = new Date()
+	var hours = currentTime.getHours()
+	var minutes = currentTime.getMinutes()
+	if (minutes < 10){
+	minutes = "0" + minutes
+	}
+	document.write(hours + ":" + minutes + " ")
+	if(hours > 11){
+	document.write("P.M.")
+	}
+	else{
+	document.write("A.M.")
+	}
+	</script></b></h2>
+	<h5>Team members: Sarah Duncan, Ian Outhwaite, Tiffany Phan, Raymond Zeng</h5> 
+      </div>
+      <div id="nhc" style="display:none">
+	<h2>National Hurricane Center</h2>
+	<img src="http://www.nhc.noaa.gov/overview_atl/atl_overview.gif" style="width:565; height:353">
+      </div>
+      <div id="radiomessage" style="display:none">
+	<button id="bmessage" class="medium"><span class="icon medium darkgray" data-icon="9"></span> (1) Incoming Message</button><br></br>
+	<strong id="message"></strong>
+      </div>
+      <div id="wheel" style="display: none">
+	<h2>Wanted</h2>
+	<h4>Armed and Extremely Dangerous</h4>
+	<div id="myCarousel" class="carousel slide" data-interval="5000">
+	  <!-- Carousel items -->
+	  <div class="carousel-inner">
+	    <div class="active item">
+	    <img src="/static/img/rsz_toy-story-aliens-3.jpg"></img>
+	    <div class="carousel-caption">
+	      <h4>Jeff</h4>
+	      <p>Jeff enjoys fishing, small talk, and long walks on the beach. He had conquered roughly 4/7ths of the universe as of March 384th 12,845,239,274 ABB (after the big bang).</p>
+	    </div>
+	  </div>
+	  <div class="item">
+	    <img src="/static/img/rsz_simpsons-kang-and-kodos.jpg"></img>
+	    <div class="carousel-caption">
+	      <h4>Kang and Kodos</h4>
+	      <p>These two slime-green beasties hail from Rigel IV, and have bided their time for years trying to understand human culture. However, one brave man realized what they were up to, and decided to devote his life to acting in an often dumb fashion in order to trick them into believing humankind was weak, so that when they did eventually strike they could easily be thwarted, unprepared as they would be.
+	      </p>
+	    </div>
+	  </div>
+	  <div class="item">
+	    <img src="static/img/rsz_transformers_wallpaper_by_decepticon_leader.jpg"></img>
+	    <div class="carousel-caption">
+	      <h4>Decepticons</h4>
+	      <p>Decepticons are gigantic robots composed of vehicle parts, and they really would like nothing more than to see your feeble organic body smushed to pulp. Led by Megatron, they can transform into various mechanical contraptions, such as cars, planes, and old-timey watches.
+	      </p>
+	    </div>
+	  </div>
+	  </div>
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div>
+      </div>
+    </div>
+    <div id="Location" class="tab-content">
+      <label for="address"><span class="left">Please be as specific as possible</span></label>
+      <input id="address" type="text" placeholder="Enter Your Location"/>
+      <p id="user_location"></p>
+    </div>
+    <div id="Directions" class="tab-content">
+      <a href="#" id="mylocurl">My Location</a>
+      <br></br>
+      <form class="form-inline">
+	<input id="start" type="text" placeholder="Start"/>
+	<input id="end" type="text" placeholder="End"/>
+	<select id="mode">
+	  <option value="driving">Driving</option>
+	  <option value="walking">Walking</option>
+	  <option value="bicycling">Bicycling</option>
+	  <option value="transit">Public Transit</option>
+	</select>
+	<input type="button" value="Get Directions" onclick="calcRoute()">
+	<a href="" style="display:none" target="_blank" id="directionsgmap">Detailed Results</a>
+      </form>
+      	<div class="col_3">
+	  <p id="distFrom" style="display:none"></p>
+	</div>
+	<div class="col_3">
+	  <p id="durTo" style="display:none"></p>
+	</div>
+    </div>
+    
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+	<h3 id="myModalLabel">WELL, THIS IS IT</h3>
+      </div>
+      <div class="modal-body">
+	<em>It's December 21 2012, and the world is ending.</em><br></br>
+        <p> So, naturally of course, you've come here to figure out how to survive the apocalypse. That's a good start, but you still are not sure exactly what we can do for you. It's simple. No matter what sort of world-ending destruction is threatening your existence, we've figured out just how feasible it is for you to wait out the hurricane/alien attack/zombie plague no matter where you are. Simply enter your location and we'll tell you some nearby places that you should either stay near or avoid at all costs!</p>         
+        <p> For example, lets say you and your buddies are holed up in the Statue of Liberty during an alien invasion. Wait, seriously? COME ON, haven't you seen "Independence Day"?! Why would you even be there in the first place?! Well, as it turns out large landmarks are a bad place to be during an alien invasion (something to do with symbolically destroying humanity).</p>
+	<p>In any case, we wish you well and hope that you survive the cataclysmic destruction of the rest of your race!</p>
+      </div>
+      <div class="modal-footer">
+	<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
+  </body>  
+</html>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/8281/trunk/final/4/DuncaNie
+END
+client.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/8281/trunk/final/4/DuncaNie/client.c
+END
+BUGS.md
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/8304/trunk/final/4/DuncaNie/BUGS.md
+END
+TODO.md
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/8304/trunk/final/4/DuncaNie/TODO.md
+END
+server.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/8281/trunk/final/4/DuncaNie/server.c
+END
+DESIGN.md
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/8313/trunk/final/4/DuncaNie/DESIGN.md
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/8304/trunk/final/4/DuncaNie/README.md
+END
+makefile
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/7677/trunk/final/4/DuncaNie/makefile
+END

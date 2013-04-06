@@ -1,0 +1,35 @@
+body
+{
+    background: #AFC1E7; /*light blue*/
+    background-image:url('http://www.stuycs.org/_/rsrc/1315154301729/config/customLogo.gif?revision=2');
+    background-repeat:no-repeat;
+    background-position:left top;
+    text-align: center;
+    font-family: cursive;
+    font-size: medium;
+    color: #412B8F; /*royal purple*/
+}
+
+h1{
+    font-family: serif;
+}
+
+.story{
+    background-image: url('http://seerachelgraduate.files.wordpress.com/2011/03/castle.jpg');
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+textarea{
+    border-color: #FFD480; /*complementary orangey-yellow*/
+    border-style: solid;
+    border-width: medium;
+}
+
+input{
+    font-size: medium;
+}
+
+select{
+    font-size: medium;
+}

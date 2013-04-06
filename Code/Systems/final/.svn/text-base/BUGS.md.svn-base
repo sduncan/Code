@@ -1,0 +1,1 @@
+Everything was pretty smooth sailing until yesterday when we could get a single client and server to interact via a subserver correctly, but couldn't add in a second client without encountering some bugs like weird characters and the message not going through to the other client. However, we fixed those problems last night! (fixed on 1/24).

@@ -1,0 +1,62 @@
+DN SHELL
+by Sarah Duncan and Helen Nie (DuncaNie)
+
+Features:
+	Successfully forks and executes commands
+	Parses multiple commands on one line
+	Redirects properly
+	Provides entertainment (at least to the creators) with various shell puns
+
+Attempted:
+	Piping does not work
+	Cannot get exit or cd to work (although we know we cannot use exec for these things)
+	
+Bugs:
+	Nothing other than failed attempts already listed (at least that we know of)
+
+Files & Function Headers:
+
+shell.c
+	Manages all functions except for the main method
+
+  ----rmSpaces----
+  removes extra spaces from the command
+  takes a command in the form of a string
+  returns the command without any extra spaces
+
+ ----getLoc-----
+  takes an integer and a command in the form of a string
+  finds the location of the command
+  returns location of the command
+
+ ----execute_piping----
+  takes the array of commands as a parameter
+  executes the command with piping
+  doesn't return anything
+
+  ----execute_r_in----
+  takes the array of commands
+  executes the command with the proper redirection of stdin
+  doesn't return anything
+
+ ----execute_r_out----
+  takes the array of commands
+  executes the command with the proper redirection of stdout
+  doesn't return anything
+
+ ----execute----
+  takes an array of commands as a paramter 
+  executes the commands
+  doesn't return anything
+
+----package----
+  takes a string of input and puts it into an array of individual command parts
+  returns an array of commands and their possible parameters
+
+ ----prompt----
+  takes no parameters
+  prompts user for input
+  returns and int indicating whether the prompt back is to exit (0) or not (1)
+
+seashell.c
+	Main function!

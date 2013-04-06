@@ -1,0 +1,36 @@
+After School Program,	 After%20School%20Program
+Beach,	 Beach
+Business Solution Center,	 Business%20Solution%20Center
+Child Care Center,	 Child%20Care%20Center
+Clinic,	 Clinic
+Community Board,	 Community%20Board
+Cultural Institution,	 Cultural%20Institution
+DRIE Enrollment Center,	 DRIE%20Enrollment%20Center
+DSNY Garage,	 DSNY%20Garage
+EITC Assistance Center,	 EITC%20Assistance%20Center
+Financial Education Site,	 Financial%20Education%20Site
+Food Provider,	 Food%20Provider
+Food Stamp Center,	 Food%20Stamp%20Center
+Golf,	 Golf
+Green Market,	 Green%20Market
+HomeBase Site,	 HomeBase%20Site
+Hospital,	 Hospital
+Immigrant Service Provider,	 Immigrant%20Service%20Provider
+Jail Release Services,	 Jail%20Release%20Services
+Library,	 Library
+Medicaid Office,	 Medicaid%20Office
+Medicare Drug Counseling,	 Medicare%20Drug%20Counseling
+Municipal Parking Facility,	 Municipal%20Parking%20Facility
+Non-Profit Organization,	 Non-Profit%20Organization
+Nurse Home Visiting Program,	 Nurse%20Home%20Visiting%20Program
+Park,	 Park
+Pool,	 Pool
+Precinct,	 Precinct
+Quit Smoking Clinic,	 Quit%20Smoking%20Clinic
+Recreation Center,	 Recreation%20Center
+School,	 School
+School District,	 School%20District
+Summer Meal Program,	 Summer%20Meal%20Program
+Universal Pre-K,	 Universal%20Pre-K
+Workforce1 Career Center,	 Workforce1%20Career%20Center
+Youth Employment,	 Youth%20Employment

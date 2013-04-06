@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css"></link>
+</head>
+<body>
+  <h1>
+    Website Creator
+ </h1>
+  <div id="main">
+    Tools:<span id="spacing">Your Page:</span><br>
+    <div id="pane">
+     <button id="TextArea" class="paneobject">Text Area</button>
+     <button id="Button" class="paneobject">Button</button>
+     <button id="Dropdown" class="paneobject">Drop Down</button>
+    </div>
+    <div id="maker">
+    </div>
+    <div id="text2">Your HTML:<span id="spacing2">Menu:</span></div>
+    <div id="pagehtml">
+      <textarea id="pagehtml"><html>
+<body>
+</body>
+</html></textarea>
+      </div>
+    <div id="optionsmenu">
+      Select Background Color:
+      <input type="color" id="backgroundcolor"  name="points" min="1" max="10">
+    </div>
+  </div>
+</body>
+</html>

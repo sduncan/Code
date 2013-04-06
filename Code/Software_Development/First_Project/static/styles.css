@@ -1,0 +1,79 @@
+body{
+    font-size: medium;
+    font-family:cool_font;
+    line-height: 2;
+    background: #8FBC8F;
+    text-align: center;
+    background-image:url('http://www.stuycs.org/_/rsrc/1315154301729/config/customLogo.gif?revision=2');
+    background-repeat:no-repeat;
+    background-position:left top;
+}
+
+@font-face {
+	font-family: cool_font;
+	src: url('Copperplate Gothic Light.ttf');
+}
+
+
+title{
+    color: #06266F;
+    font-family:cool_font;
+}
+
+h1{
+    color: #06266F;
+    text-align: center;
+    font-family:cool_font;
+}
+
+h2{
+    color: #06266F;
+    text-align: center;
+    font-family:cool_font;
+}
+
+h4{
+    color: #06266F;
+    font-size:150%;
+    font-family:cool_font;
+}
+
+p{
+    color: white;
+}
+
+label{
+    color: white;
+    text-transform: uppercase;
+}
+
+img{
+    border: 1px solid silver;
+}
+
+input{
+    color: white;
+}
+
+.submit_button{
+    font-size: medium;
+    color: black;
+}
+
+.typing{
+    font-size: medium;
+    color: black;
+    }
+
+
+img.judge{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 10px solid white;
+}
+
+#buttons {text-align:center;}
+#radioes {text-align:center;}
+#results {text-align:center;}
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css"/>
+</head>
+<html>
+<body>
+<h1>Welcome to the Storynator 3000!</h1>
+
+
+<form method = "POST">
+
+    {% if 0 < titles|length %}
+	      <h2>Choose a lovely story!</h2>
+	      <select name="title">
+		{% for title in titles %}
+		<option>{{title}} </option>
+		{% endfor %}
+	      </select>
+	      <br>
+	      <input type=submit name=button value="Choose story"></input>
+	      {% endif %}
+
+<br>
+<br>
+
+<h2>Start your own lovely story!</h2>
+
+<p><label>First story line:
+<br>
+<em>(Also the story's title)</em><br>
+<textarea name="new_story" rows="5" cols="50"></textarea>
+</label></p>
+
+<br><input type=submit name=button value="Create story"></input>
+<br><input type=submit name=button value="Drop stories"></input>
+
+</form>
+
+</body>
+</html>
