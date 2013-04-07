@@ -35,6 +35,13 @@ function menuupdate(item) {
 	});
 	zind = 1;
     }
+    console.log($(editing).context.outerHTML)
+    if ($(editing).context.outerHTML.indexOf("select") >= 0) {
+	$("div#optionsmenu").append("<input type='text' id='addoption'><input type='submit' id='suboption'>");
+	$("#suboption").click(function() {
+	    //stuff
+	});
+    }
 }
 
 $(window).ready(function() {

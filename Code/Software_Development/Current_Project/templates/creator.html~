@@ -1,0 +1,13 @@
+<html>
+<script src="{{ url_for('static/js', filename='main.js') }}"></script>
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css"></link>
+<h1>
+Website Creator
+</h1>
+<body>
+  <canvas id="pane">
+  </canvas>
+  <canvas id="maker">
+  </canvas>
+</body>
+</html>

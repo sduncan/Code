@@ -1,0 +1,52 @@
+var selected = ""; 
+var current = "undefined";
+var makertop;
+var makerleft;
+var active = false;
+
+function toElement(type) {
+    return "<"+type+" class='inpage' id='current' disabled></"+type+">";
+}
+
+$(document).ready(function() {
+    makertop = document.getElementById("maker").style.top;
+    makerleft = document.getElementById("maker").style.left;
+    $("#TextArea").click(function() {
+	selected = "Textarea";
+	$("#current").attr("id","");
+    });
+    $("#Button").click(function() {
+	selected = "Button";
+	$("#current").attr("id","");
+    });
+    $("div#maker").mouseenter(function(e) {
+	if (selected != "" && active == false) {
+	    $("div#maker").prepend(toElement(selected));
+	    selected = "";
+	    current = document.getElementById("current");
+	    current.style.position = "fixed";
+	    console.log(e.pageX + " " + e.pageY);
+	    current.style.top = e.pageY;
+	    current.style.left = e.pageX;
+	}
+	active = true;
+    });
+    $("div#maker").mouseleave(function(e) {
+	if (active == true) {
+	    active = false;
+	}
+    });
+    $("div#maker").mousemove(function(e) {
+	if (active != false) {
+	    current.style.top = e.pageY - makertop;
+	    current.style.left = e.pageX - makerleft;
+	} 
+    });
+    $("div#maker").click(function() {
+	if (current != "undefined") {
+	    current = "undefined";
+	    active = false;
+	}
+    });
+}
+)
