@@ -67,17 +67,19 @@ void parse_file ( char * filename,
 
   FILE * fp = fopen(filename, "r");
 
-  char * lines = (char *)malloc(1);
-  float x0, y0, z0, x1, y1, z1;
-  float x, y, z;
-  float theta;
-	
-  while(fscanf(fp, "%c", lines)) {
-    printf("lines gets: %c \n", *lines); 
-    switch (*lines){
+  if(fp == NULL){
+    printf("Nope, that's not going to work");
+    exit(1);
+  }
+  
+  char lines[256];
+
+  while(fgets(lines, 256, fp)) {
+    switch (lines[0]){
     case 'l':
       {
-	fscanf(fp, "%f %f %f %f %f %f", &x0, &y0, &z0, &x1, &y1, &z1);
+	int x0, y0, z0, x1, y1, z1;
+	fscanf(fp, "%d %d %d %d %d %d", &x0, &y0, &z0, &x1, &y1, &z1);
 	add_edge(pm, x0, y0, z0, x1, y1, z1);
 	break;
       }
@@ -88,7 +90,8 @@ void parse_file ( char * filename,
       }
     case 's':
       {
-	fscanf(fp, "%f %f %f", &x, &y, &z);
+	int x, y, z;
+	fscanf(fp, "%d %d %d", &x, &y, &z);
 	struct matrix * scale = make_scale(x, y, z);
 	matrix_mult(scale, transform);
 	free(scale);
@@ -96,7 +99,8 @@ void parse_file ( char * filename,
       }
     case 't':
       {
-	fscanf(fp, "%f %f %f", &x, &y, &z);
+	int x, y, z;
+	fscanf(fp, "%d %d %d", &x, &y, &z);
 	struct matrix * trans = make_translate(x, y, z);
 	matrix_mult(trans, transform);
 	free(trans);
@@ -104,7 +108,8 @@ void parse_file ( char * filename,
       }
     case 'x':
       {
-	fscanf(fp, "%f", &theta);
+	int theta;
+	fscanf(fp, "%d", &theta);
 	struct matrix * transx = make_rotX(theta);
 	matrix_mult(transx, transform);
 	free(transx);
@@ -112,7 +117,8 @@ void parse_file ( char * filename,
       }
     case 'y':
       {
-	fscanf(fp, "%f", &theta);
+	int theta;
+	fscanf(fp, "%d", &theta);
 	struct matrix * transy = make_rotY(theta);
 	matrix_mult(transy, transform);
 	free(transy);
@@ -120,7 +126,8 @@ void parse_file ( char * filename,
       }
     case 'z':
       {
-	fscanf(fp, "%f", &theta);
+	int theta;
+	fscanf(fp, "%d", &theta);
 	struct matrix * transz = make_rotZ(theta);
 	matrix_mult(transz, transform);
 	free(transz);
@@ -133,36 +140,25 @@ void parse_file ( char * filename,
       }
     case 'v':
       {
-	clear_screen(s);
 	draw_lines(pm, s, c);
 	display(s);
 	break;
       }
     case 'g':
       {
-	char * file = (char *)malloc(256);
+	char * file;
 	fscanf(fp, "%s", file);
-	clear_screen(s);
 	draw_lines(pm, s, c);
-	save_extension(s, file);
-	free(file);
+	save_ppm(s, file);
 	break;
       }
     case 'q':
-      {
-	exit(0);
-      }
+      exit(0);
     default:
-      {
-	exit(1);
-      }
+      exit(1);
     }
-    fscanf(fp, "%c", lines);
   }
-  
+
   fclose(fp);
   free(lines);
-  
 }
-
-  
