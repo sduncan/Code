@@ -14,21 +14,25 @@ width:13%;
 float:left;
 display:inline;
 margin-bottom:5px;
-border-width:1px;
-border-style:solid;
+border-width:3px;
+border-radius:5px;
+border-style:outset;
+background-color:LightGray;
+border-color:Gainsboro;
 }
 
 div#maker {
 position:relative;
 top:0px;
-right:20%;
 height:75%;
 width:75%;
 float:right;
 display:inline;
 margin-bottom:5px;
-border-width:1px;
+border-width:3px;
 border-style:solid;
+background-color:white;
+border-color:SteelBlue;
 } 
 
 div#pagehtml {
@@ -37,8 +41,9 @@ top:85%;
 height:43%;
 width:50%;
 margin-bottom:5px;
-border-width:1px;
+border-width:3px;
 border-style:solid;
+border-color:SteelBlue;
 }
 
 div#optionsmenu {
@@ -48,8 +53,11 @@ left: 52%;
 height:43%;
 width:47%;
 margin-bottom:5px;
-border-width:1px;
-border-style:solid;
+border-width:3px;
+border-radius:5px;
+border-style:outset;
+background-color:LightGray;
+border-color:Gainsboro;
 }
 
 div#text2 {
@@ -59,12 +67,12 @@ top:81%;
 
 span#spacing {
 position:relative;
-left:12%;
+left:10%;
 }
 
 span#spacing2 {
 position:relative;
-left: 415%;
+left: 383%;
 }
 
 .paneobject {
@@ -86,6 +94,7 @@ width:100%;
 height:100%;
 resize:none;
 border-style:none;
+font-family: Gill Sans, sans-serif;
 z-index:1;
 }
 
@@ -97,4 +106,56 @@ z-index:2;
 border-style:inset;
 border-width:2px;
 border-color:red;
+}
+
+button.paneobject{
+  border-style:outset;
+  border-radius:2px;
+  font-family: Gill Sans, sans-serif;
+
+  
+}
+
+button.paneobject:hover, button.paneobject:active{
+  border-style:inset;
+  border-radius:2px;
+  font-family: Gill Sans, sans-serif;
+}
+
+body{
+    background-color:WhiteSmoke;
+    font-family: Gill Sans, sans-serif;
+    font-color:DimGray;
+    font-size: 15px;
+    font-style:bold;
+    text-shadow: 2px 2px LightSteelBlue;
+}
+
+h1{
+font-family: ‘Arial Black’, Gadget, sans-serif;
+font-style:bold;
+font-color:DimGray;
+font-size: 45px;
+text-shadow: 3px 3px LightSteelBlue;
+}
+
+div#tools{
+position:relative;
+top:2%;
+left:75%;
+height:71%;
+width:5%;
+float:right;
+display:inline;
+margin-bottom:5px;
+border-width:3px;
+border-radius:5px;
+border-style:outset;
+background-color:LightGray;
+border-color:Gainsboro;
+}
+
+img#toolopen{
+position:relative;
+top:50%;
 }

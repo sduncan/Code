@@ -6,8 +6,11 @@ var active = false;
 var out;
 var setup = false;
 var editing = "maker";
-var zind;
+var zind = 0;
 var currenttoo;
+var temp = "";
+var i;
+var end = "";
 
 function toElement(type) {
     return "<"+type+" class='inpage' id='current' readonly='readonly'></"+type+">";
@@ -15,31 +18,48 @@ function toElement(type) {
 
 function menuupdate(item) {
     if (item == "maker" && editing != "maker" && zind <= 0) {
-	$("div#optionsmenu").empty();
+	$(".removable").fadeOut();
+	$(".removable").remove();
 	$(".edit").removeClass("edit");
 	editing = "maker";
-	$("div#optionsmenu").append("Select Background Color: <input type='color' id='backgroundcolor'  name='points' min='1' max='10'>");
+	$("#colorimg").fadeIn();
+	$("#colormap").fadeIn();
+	$("#tohidetext").fadeIn();
 	$("#backgroundcolor").change(function() {
 	$("div#maker").css("background-color",$(this).val());
     });
     }
-    if (item != "maker") {
+    if (item != "maker" && editing != item) {
+	var alreadyremove = false;
+	$("#colorimg").fadeOut();
+	$("#colormap").fadeOut();
+	$("#tohidetext").fadeOut();
+	if ($(".removable").length > 0) {
+	    alreadyremove = true;
+	}
 	editing = item;
 	$(".edit").removeClass("edit");
 	$(editing).addClass("edit");
-	$("div#optionsmenu").empty();
-	$("div#optionsmenu").append("<button id='itemremoval'>Remove</button>")
+	if (!alreadyremove) {setTimeout(function() {$("div#optionsmenu").append("<button id='itemremoval' class='removable' hidden>Remove</button>"); $("button#itemremoval").fadeIn();
 	$("button#itemremoval").click(function() {
+	    $('div#pagehtml textarea').text(function(index, text){
+		tmp = editing.outerHTML
+		i = text.indexOf(tmp);
+		end = text.substring(i + tmp.length, text.length);
+		return i; //text.substring(0, i);
+	    });
 	    $(".edit").remove();
 	    menuupdate("maker");
-	});
+	});},400);}		    
 	zind = 1;
     }
-    console.log($(editing).context.outerHTML)
     if ($(editing).context.outerHTML.indexOf("select") >= 0) {
-	$("div#optionsmenu").append("<input type='text' id='addoption'><input type='submit' id='suboption'>");
+	$("div#optionsmenu").append("<br>Add Options:<input type='text' id='addoption'><input type='submit' id='suboption'>");
 	$("#suboption").click(function() {
-	    //stuff
+	    newopt = $("#addoption").val();
+	    console.log(newopt);
+	    $(editing).append("<option value="+newopt+" selected>"+newopt+"</option>");
+	    $("addoption").val("");
 	});
     }
 }
@@ -62,9 +82,10 @@ $(window).ready(function() {
 	selected = "Select"
 	$("#current").attr("id","");
     });
-    $("#backgroundcolor").change(function() {
-	$("div#maker").css("background-color",$(this).val());
+    $("#toolopen").click(function() {
+	$(this).animate({width:'toggle'});
     });
+    $("#toolopen").animate({width:'toggle'});
     $("div#maker").mouseenter(function(e) {
 	$("div#maker").height($("div#maker").height());
 	$("div#maker").width($("div#maker").width());
@@ -141,6 +162,7 @@ $(window).ready(function() {
     });
     $("div#maker").click(function() {
 	if (current != "undefined") {
+
 	    current.style.zIndex = 2;
 	    $(current).addClass("placed");
 	    $(current).mousedown(function() {
@@ -150,9 +172,14 @@ $(window).ready(function() {
 		setTimeout(function(){
 		    zind = 0;	
 		},50);
+
 	    });
+	    temp = current;
 	    current = "undefined";
 	    active = false;
+	    $('div#pagehtml textarea').text(function(index, text){ 
+		return (text.substring(0, text.length - 14).concat(temp.outerHTML) + "\n</body></html>");
+	    });
 	}
 	else {
 	    menuupdate("maker");
