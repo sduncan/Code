@@ -1,4 +1,4 @@
-@header-color: #FF0000;
+@header-color: #412B8F;
 @body-color: #FF7400;
 @background-color: #009999;
 @base-width: 10%;
@@ -9,10 +9,12 @@ background-color: fade(@background-color, 50%);
 
 .title{
 color: @header-color;
+text-align: center;
 }
 
-p{
+body{
 .title;
+color: @body-color;
 }
 
 img{
@@ -23,8 +25,4 @@ left: 10px;
 
 img:hover {
 width: (@base-width * 2);
-}
-
-#silly:hover{
-background-color: desaturate(@background-color, 100%);
 }
