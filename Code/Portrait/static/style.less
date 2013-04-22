@@ -1,0 +1,30 @@
+@header-color: #FF0000;
+@body-color: #FF7400;
+@background-color: #009999;
+@base-width: 10%;
+
+body{
+background-color: fade(@background-color, 50%);
+}
+
+.title{
+color: @header-color;
+}
+
+p{
+.title;
+}
+
+img{
+width: @base-width;
+position: relative;
+left: 10px;
+}
+
+img:hover {
+width: (@base-width * 2);
+}
+
+#silly:hover{
+background-color: desaturate(@background-color, 100%);
+}
