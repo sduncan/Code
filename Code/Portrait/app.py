@@ -4,12 +4,23 @@ app = Flask(__name__)
 
 @app.route('/',methods=["POST", "GET"])
 def home():
+    if request.method == "POST":
+        button = request.form["button"]
+        name = request.form["usern"]
+        paswrd = request.form["userp"]
+        if button == "Sign In":
+            if name=='TrustedUser' and paswrd=='Enter':
+                return redirect(url_for("main"))
     return render_template("home.html")
 
-@app.rout('/main/',methods=["POST", "GET"])
+@app.route('/main',methods=["POST", "GET"])
 def main():
+    if request.method == "POST":
+        button = request.form["button"]
+        if button == "Log Out":
+            return redirect(url_for("home"))
     return render_template("main.html")
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run(port=5001)

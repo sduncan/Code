@@ -29,7 +29,7 @@
       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
       box-shadow: 0 1px 2px rgba(0,0,0,.05);
       text-align: center;
-      color: #000000;
+      color: #FFFFFF;
       }
       .form-signin .form-signin-heading,
       .form-signin .checkbox {
@@ -52,12 +52,12 @@
 
     <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" method="POST">
         <h2 class="form-signin-heading">Welcome to my Portrait! Please sign in.</h2>
-        <input type="text" class="input-block-level" placeholder="Username">
-        <input type="password" class="input-block-level" placeholder="Password">
+        <input type="text" class="input-block-level" placeholder="Username" name="usern">
+        <input type="password" class="input-block-level" placeholder="Password" name="userp">
 	<br>
-        <button class="btn btn-large btn-primary" type="submit">Sign In</button>
+        <button class="btn btn-large btn-success" type="submit" value="Sign In" name="button"><i class="icon-road icon-white"></i> Sign In</button>
       </form>
 
     </div> <!-- /container -->
