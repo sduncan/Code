@@ -21,6 +21,16 @@ def main():
             return redirect(url_for("home"))
     return render_template("main.html")
 
+@app.route('/goal',methods=["POST", "GET"])
+def goal():
+    if request.method == "POST":
+        button = request.form["button"]
+        if button == "Log Out":
+            return redirect(url_for("home"))
+        if button == "Main":
+            return redirect(url_for("main"))
+    return render_template("goal.html")
+
 if __name__ == "__main__":
     app.debug = True
     app.run(port=5001)
