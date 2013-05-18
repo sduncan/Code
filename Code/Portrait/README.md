@@ -1,0 +1,2 @@
+Hello!
+This is the code for my Senior Portrait. This is something that all students taking AP English do at the end of their senior year as a piece of self-discovery, specifically relating to the major influences in each of our lives. So, as a comp sci nerd, clearly I need to present mine in the form of a webpage :)
