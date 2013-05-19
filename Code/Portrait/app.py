@@ -17,9 +17,8 @@ def home():
 def main():
     if request.method == "POST":
         image = request.form["pic"]
-        button = request.form["button"]
-
-        if button == "Log Out":
+ 
+        if image == "Log Out":
             return redirect(url_for("home"))
         if image == "goal":
             return redirect(url_for("goal"))

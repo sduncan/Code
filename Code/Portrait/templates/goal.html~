@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Goal</title>
+
+    <!-- Styles -->
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <style type="text/css">
+
+      body{
+      background-color: #238D43;
+      }
+      h1{
+      color: #FFFFFF;
+      }
+      #buttons{
+      position:absolute;
+      right:0px;
+      top:0px;
+      }
+      #content{
+      text-align:center;
+      }
+      #goal{
+      width:200px;
+      height:200px;
+      }
+      #picture{
+      position:absolute;
+      left:0px;
+      top:0px;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="background"></div>
+
+    <div id="content">
+
+      <form id="picture">
+      	<img id="goal" class="img-rounded" src="http://www.steellockers.com/images/LacrosseGoal.png"></img>
+      </form>
+
+      <form id="main">
+	<h1>Goal</h1>
+
+      </form>      
+      
+      <form id="buttons">
+
+	<button class="btn btn-small btn-primary" type="submit" name="button" value="Main"><i class="icon-home icon-white"></i> Main Page</button>
+	<button class="btn btn-small btn-primary" type="submit" name="button" value="Log Out"><i class="icon-eject icon-white"></i> Log Out</button>
+
+      </form>
+
+    </div>
+
+  </body>
+
+</html>
+
+
