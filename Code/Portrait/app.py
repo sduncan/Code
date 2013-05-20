@@ -28,8 +28,6 @@ def main():
             return redirect(url_for("bench"))
         if image == "baseball":
             return redirect(url_for("baseball"))
-        if image == "code":
-            return redirect(url_for("code"))
         if image == "rose":
             return redirect(url_for("rose"))
         if image == "bandana":
