@@ -45,31 +45,57 @@ def goal():
             return redirect(url_for("home"))
         if button == "Main":
             return redirect(url_for("main"))
-    return render_template("goal.html")
+    return render_template("goal.html",name="goal")
 
 @app.route('/music',methods=["POST", "GET"])
 def music():
-    return render_template("music.html")
+    if request.method == "POST":
+        button = request.form["button"]
+        if button == "Log Out":
+            return redirect(url_for("home"))
+        if button == "Main":
+            return redirect(url_for("main"))
+    return render_template("music.html",name="music")
 
 @app.route('/bench',methods=["POST", "GET"])
-def music():
-    return render_template("bench.html")
+def bench():
+    if request.method == "POST":
+        button = request.form["button"]
+        if button == "Log Out":
+            return redirect(url_for("home"))
+        if button == "Main":
+            return redirect(url_for("main"))
+    return render_template("bench.html",name="bench")
 
 @app.route('/baseball',methods=["POST", "GET"])
-def music():
-    return render_template("baseball.html")
-
-@app.route('/code',methods=["POST", "GET"])
-def music():
-    return render_template("code.html")
+def baseball():
+    if request.method == "POST":
+        button = request.form["button"]
+        if button == "Log Out":
+            return redirect(url_for("home"))
+        if button == "Main":
+            return redirect(url_for("main"))
+    return render_template("baseball.html",name="baseball")
 
 @app.route('/rose',methods=["POST", "GET"])
-def music():
-    return render_template("rose.html")
+def rose():
+    if request.method == "POST":
+        button = request.form["button"]
+        if button == "Log Out":
+            return redirect(url_for("home"))
+        if button == "Main":
+            return redirect(url_for("main"))
+    return render_template("rose.html",name="rose")
 
 @app.route('/bandana',methods=["POST", "GET"])
-def music():
-    return render_template("bandana.html")
+def bandana():
+    if request.method == "POST":
+        button = request.form["button"]
+        if button == "Log Out":
+            return redirect(url_for("home"))
+        if button == "Main":
+            return redirect(url_for("main"))
+    return render_template("bandana.html",name="bandana")
 
 if __name__ == "__main__":
     app.debug = True
