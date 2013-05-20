@@ -23,7 +23,7 @@
       #content{
       text-align:center;
       }
-      #goal{
+      #{{name}}{
       width:200px;
       height:200px;
       }
@@ -31,6 +31,18 @@
       position:absolute;
       left:0px;
       top:0px;
+      }
+      #text{
+      text-align: left;
+      font-family: Times New Roman,Times,Serif;
+      font-size:12pt;
+      position: absolute;
+      left: 10px;
+      top: 225px;
+      resize:none;
+      width:95%;
+      height:100%;
+      line-height:150%;
       }
 
     </style>
@@ -44,7 +56,7 @@
     <div id="content">
 
       <form id="picture">
-      	<img id="goal" class="img-rounded" src="http://www.steellockers.com/images/LacrosseGoal.png"></img>
+      	<img id="{{name}}" class="img-rounded" src="http://www.steellockers.com/images/LacrosseGoal.png"></img>
       </form>
 
       <form id="main">
@@ -52,12 +64,23 @@
 
       </form>      
       
-      <form id="buttons">
+      <form id="buttons" method="POST">
 
 	<button class="btn btn-small btn-primary" type="submit" name="button" value="Main"><i class="icon-home icon-white"></i> Main Page</button>
 	<button class="btn btn-small btn-primary" type="submit" name="button" value="Log Out"><i class="icon-eject icon-white"></i> Log Out</button>
 
       </form>
+      
+      <textarea id="text" readonly="readonly">
+	So much of who I am today relates to lacrosse. It’s my game, it’s what I do, it’s my lifestyle. Playing lacrosse gives me the confidence that I know what I’m doing and the drive that really pushes me to do my absolute best. Go hard or go home. Fast or last. These are mottos in the lacrosse community that I’ve internalized. I’m tired? My body is in pain? Who gives a fuck, time to score. I’ll keep going ‘till I collapse. “Honey, are you having troubles at home? Are you being... abused?” What, these bruises? Nahhh, had a lacrosse game yesterday. Some girl tried to take me out. Don’t worry. She didn’t.
+	It’s all worth the battered fingers and sore joints. Lacrosse is a Native American sport and one name for it is the medicine game. It’s not medicinal for your body (on the contrary) but it’s medicine for the soul. Playing on the great field, running with all the speed I can muster, dissolves any worries, helps me forget my problems, puts everything into perspective. When I’m poised for a penalty shot, waiting for the whistle to blow, all that is on my mind is getting the ball into that net. All I have to do is spring into action.
+	Anne was actually the one who got me into lacrosse. She borrowed a stick from our school (lax is pretty big up in Buffalo and private schools have money to buy their own sticks) and brought it home. Whatever, I had nothing else to do (again, it’s Buffalo) so I joined the team. I didn’t realize how much I loved lacrosse until freshman year at Stuy when I didn’t join the team. I was already playing basketball and two varsity sports my first year seemed like a lot. I was still adjusting to just being in high school. I ended coaching little league for that year, which was fun in its own right, but it wasn’t the same.
+	Suzy was lacrosse captain as a sophomore when I was a freshman. It gave her an unwavering confidence that I envied. Trying to impress her, I told her I had played lacrosse before, even though I didn’t anymore. Jumping on the opportunity, she made me promise I would try out next season. I couldn’t say no. After all, I had missed playing so much.
+	The spring of my sophomore year, I tried out and it was clear I would soon be one of the Huskies. When I went to check the roster, Suzy yelled at me for not assuming I had made it. She did not understand that I had to see it in writing. 
+	Despite Suzy’s confidence in me, my butterflies were still there at our first game. I was expecting to be on the sideline like I had been for basketball, but Coach Lindsay put me as a starting midfield. Standing along the edge of the center circle, I shifted from foot to foot and thought through everything I needed to remember to keep from embarrassing myself. Suzy checked in with Coach and walked out with an assured gait. She was ready to play. When she saw me, a little smile flashed across her face. She came over, planted her feet in front of me, hit my lacrosse stick with hers, and said, “Stop worrying. Go get ‘em, Duncan.” This made me smile, but I was still nervous.
+	The game started and the other team, Tottenville, was crushing us. We tried, but once we were losing 10-0, Tottenville treated the game like a practice and played all of their benchwarmers. With ten minutes left in the game, I intercepted the ball on defense. Nobody was open for a pass, so I started running. Coach shouted “WHEELS!” (her customary way of telling a player to go to goal) so I sprinted faster and faster. Once I reached the goal, I did a fake I had learned the day before and shot. It soared past the goalie; I had scored! My team erupted as if we had won Nationals. We lost 17-1. The bus ride home was full of the team chanting their new name for a goal, a Duncan. Getting off the bus, Suzy came up to me and said, “See? You got this, Duncan.”
+	Since then, Suzy has become one of my best friends and one of my greatest role models. With her by my side, I grew as a player and I am now the top scorer in the city. Now she’s gone, leaving me as captain of a developing team, but my self-confidence and incredible love for lacrosse will stay with me. After all, stats don’t lie; I’m at the top.
+      </textarea>
 
     </div>
 

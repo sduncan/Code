@@ -24,9 +24,12 @@
       }
       #logout{
       position: absolute;
+      width:100px;
+      height:30px;
       right: 0px;
       top: 0px;
       }
+      
     </style>
 
     <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
@@ -40,25 +43,19 @@
     <div id="content">
       <form id="main" method="POST">
 	<h1>This is me. Click one to explore...</h1>
-	<input type="image" name="pic" value="goal" id="goal" class="img-rounded" src="http://www.steellockers.com/images/LacrosseGoal.png"></input>
-	<input type="image" name="pic" value="music" id="music" class="img-rounded" src="http://www.alzcareblog.com/wp-content/uploads/2012/06/music.jpg"></input>
-	<input type="image" name="pic" value="bench" id="bench" class="img-rounded" src="http://1.bp.blogspot.com/-bgxGpyFhII4/T8-CgPjeE9I/AAAAAAAAAy4/jXGKLw0AuSU/s1600/11.jpg"></input>
-	<input type="image" name="pic" value="baseball" id="baseball" class="img-rounded" src="http://img.ehowcdn.com/article-new/ehow/images/a07/bn/od/play-circle-baseball-800x800.jpg"></input>
-	<input type="image" name="pic" value="code" id="code" class="img-rounded" src="http://www.whitefang.com/wp-content/uploads/2010/03/Computer-Programming1.jpg"></input>
-	<input type="image" name="pic" value="rose" id="rose" class="img-rounded" src="http://www.iflowers.com/images/rose7.jpg"></input>
-	<input type="image" name="pic" value="bandana" id="bandana" class="img-rounded" src="http://i.walmartimages.com/i/p/00/02/59/25/45/0002592545015_500X500.jpg"></input>
-	<input id="logout" class="btn btn-small btn-default" type="submit" name="pic" value="Log Out"><i class="icon-eject"></i> Log Out</input>
+	<input type="image" name="pic" value="goal" id="goal" class="img-rounded" src="http://www.steellockers.com/images/LacrosseGoal.png">
+	<input type="image" name="pic" value="music" id="music" class="img-rounded" src="http://www.alzcareblog.com/wp-content/uploads/2012/06/music.jpg">
+	<input type="image" name="pic" value="bench" id="bench" class="img-rounded" src="http://1.bp.blogspot.com/-bgxGpyFhII4/T8-CgPjeE9I/AAAAAAAAAy4/jXGKLw0AuSU/s1600/11.jpg">
+	<input type="image" name="pic" value="baseball" id="baseball" class="img-rounded" src="http://img.ehowcdn.com/article-new/ehow/images/a07/bn/od/play-circle-baseball-800x800.jpg">
+	<input type="image" name="pic" value="rose" id="rose" class="img-rounded" src="http://www.iflowers.com/images/rose7.jpg">
+	<input type="image" name="pic" value="bandana" id="bandana" class="img-rounded" src="http://i.walmartimages.com/i/p/00/02/59/25/45/0002592545015_500X500.jpg">
+	<button id="logout" class="btn btn-small btn-default" type="submit" name="pic" value="Log Out"><i class="icon-eject"></i>  Log Out</button>
       </form>
 
     </div>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
 
-    <script language="jQuery">
-      $("#goal").click(function(){
-      document.location.href = '/goal';
-      });
-    </script>
   </body>
   
 </html>

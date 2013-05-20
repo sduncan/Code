@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bandana</title>
+
+    <!-- Styles -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <style type="text/css">
+
+      body{
+      background-color: #FFCE00;
+      }
+      h1{
+      color: #FFFFFF;
+      }
+      #buttons{
+      position:absolute;
+      right:0px;
+      top:0px;
+      }
+      #content{
+      text-align:center;
+      }
+      #{{name}}{
+      width:200px;
+      height:200px;
+      }
+      #picture{
+      position:absolute;
+      left:0px;
+      top:0px;
+      }
+      #text{
+      text-align: left;
+      font-family: Times New Roman,Times,Serif;
+      font-size:12pt;
+      position: absolute;
+      left: 10px;
+      top: 225px;
+      resize:none;
+      width:95%;
+      height:100%;
+      line-height:150%;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="background"></div>
+
+    <div id="content">
+
+      <form id="picture">
+      	<img id="{{name}}" class="img-rounded" src="http://i.walmartimages.com/i/p/00/02/59/25/45/0002592545015_500X500.jpg"></img>
+      </form>
+
+      <form id="main">
+	<h1>Bandana</h1>
+
+      </form>      
+      
+      <form id="buttons" method="POST">
+
+	<button class="btn btn-small btn-warning" type="submit" name="button" value="Main"><i class="icon-home icon-white"></i> Main Page</button>
+	<button class="btn btn-small btn-warning" type="submit" name="button" value="Log Out"><i class="icon-eject icon-white"></i> Log Out</button>
+
+      </form>
+      
+      <textarea id="text" readonly="readonly">
+	She wears bandanas and chonga earrings because, yeah, she’s ratchet. There’s no way around it and she’s not ashamed of it. Half the time, she has a bandana folded up and used as a hairband, sweatpants on, and she won’t take shit from anyone. But she’s also one of the sweetest people I know. We’ve been friends for years, dating back to Mr. Park’s freshman geometry class all the way back in our first semester at Stuy. We’ve played on the basketball team, suffering some hard losses and celebrating amazing wins. It’s not how long we’ve been friends that makes her special, though. It’s how amazing of a friend she’s been to me all this time. My mom calls her “the steady one” because out of all my friends, she’s consistently there for me. When she complains about something or has a problem, it’s legitimate. It’s not some drama to get attention or anything petty. She’s real. She has her priorities straight and knows that not everything works out all the time but it will all work out in the end. 
+	So thank you, Zambeta Tsapos. You’re my girl.
+      </textarea>
+
+    </div>
+
+  </body>
+
+</html>
+
+
